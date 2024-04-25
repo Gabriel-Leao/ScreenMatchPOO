@@ -1,48 +1,13 @@
 package br.com.leao.screenmatch.models;
 
-public class Movie {
-    private String name;
-    private int releaseYear;
-    private boolean includedInSubscription;
-    private double rating;
-    private short totalRating;
-    private int duration;
+public class Movie extends Production {
+    private String director;
 
-    public void setName(String name) {
-        this.name = name;
+    public String getDirector() {
+        return director;
     }
 
-    public void setReleaseYear(int releaseYear) {
-        this.releaseYear = releaseYear;
-    }
-
-    public void setIncludedInSubscription(boolean includedInSubscription) {
-        this.includedInSubscription = includedInSubscription;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public short getTotalRating() {
-        return totalRating;
-    }
-
-    public void showTechnicalInfo() {
-        System.out.println("Nome: " + name);
-        System.out.println("Ano de lançamento: " + releaseYear);
-        System.out.println("Na assinatura: " + includedInSubscription);
-        System.out.printf("Nota: %.1f\n", rating);
-        System.out.println("Total de avaliações: " + totalRating);
-        System.out.println("Duração: " + duration);
-    }
-
-    public void rateMovie(double grade) {
-        totalRating++;
-        rating = (rating + grade) / totalRating;
+    public void setDirector(String director) {
+        this.director = director;
     }
 }
