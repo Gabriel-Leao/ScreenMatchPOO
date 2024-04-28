@@ -6,14 +6,28 @@ public class Production {
     private boolean includedInSubscription;
     private double rating;
     private short totalRating;
-    private int duration;
+    private int durationInMinutes;
+
+    public String getName() { return name; }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
 
     public double getRating() {
         return rating;
     }
 
+    public boolean getIsIncludedInSubscription() {
+        return includedInSubscription;
+    }
+
     public short getTotalRating() {
         return totalRating;
+    }
+
+    public int getDurationInMinutes() {
+        return durationInMinutes;
     }
 
     public void setName(String name) {
@@ -28,8 +42,16 @@ public class Production {
         this.includedInSubscription = includedInSubscription;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public void setTotalRating(short totalRating) {
+        this.totalRating = totalRating;
+    }
+
+    public void setDuration(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
     }
 
     public void showTechnicalInfo() {
@@ -38,7 +60,7 @@ public class Production {
         System.out.println("Na assinatura: " + includedInSubscription);
         System.out.printf("Nota: %.1f\n", rating);
         System.out.println("Total de avaliações: " + totalRating);
-        System.out.println("Duração: " + duration);
+        System.out.println("Duração: " + durationInMinutes);
     }
 
     public void rateProduction(double grade) {
