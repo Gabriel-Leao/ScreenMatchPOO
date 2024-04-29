@@ -1,4 +1,6 @@
 import br.com.leao.screenmatch.calculations.CalculateTotalTime;
+import br.com.leao.screenmatch.calculations.RecommendationFilter;
+import br.com.leao.screenmatch.models.Episode;
 import br.com.leao.screenmatch.models.Movie;
 import br.com.leao.screenmatch.models.Serie;
 
@@ -32,6 +34,13 @@ public class Main {
 //        System.out.println("Episódios: " + serie.getEpisodes());
 //        System.out.println("Em andamento: " + serie.getOngoing());
 
+        Episode ep = new Episode();
+        ep.setName("Pilot");
+        ep.setNumber(1);
+        ep.setSeason(1);
+        ep.setSerie(serie);
+        ep.setStars(5);
+
         Movie movie2 = new Movie();
         movie2.setName("O poderoso chefão 2");
         movie2.setDirector("Francis Ford Coppola");
@@ -44,5 +53,10 @@ public class Main {
         calculateTime.addProductionTime(movie2);
         calculateTime.addProductionTime(serie);
         System.out.println("Tempo total: " + calculateTime.getTotalTime());
+        RecommendationFilter RecommendationFilter = new RecommendationFilter();
+        RecommendationFilter.Filter(movie);
+        RecommendationFilter.Filter(movie2);
+        RecommendationFilter.Filter(serie);
+        RecommendationFilter.Filter(ep);
     }
 }

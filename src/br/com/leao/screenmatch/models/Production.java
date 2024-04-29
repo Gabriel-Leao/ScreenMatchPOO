@@ -1,6 +1,8 @@
 package br.com.leao.screenmatch.models;
 
-public class Production {
+import br.com.leao.screenmatch.calculations.StarsRate;
+
+public class Production implements StarsRate {
     private String name;
     private int releaseYear;
     private boolean includedInSubscription;
@@ -66,5 +68,10 @@ public class Production {
     public void rateProduction(double grade) {
         totalRating++;
         rating = (rating + grade) / totalRating;
+    }
+
+    @Override
+    public int getRatingInStars() {
+        return (int) getRating() / 2;
     }
 }
