@@ -3,12 +3,19 @@ package br.com.leao.screenmatch.models;
 import br.com.leao.screenmatch.calculations.StarsRate;
 
 public class Production implements StarsRate {
+    final
     private String name;
+    final
     private int releaseYear;
     private boolean includedInSubscription;
     private double rating;
     private short totalRating;
     private int durationInMinutes;
+
+    public Production(String name, int releaseYear) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+    }
 
     public String getName() { return name; }
 
@@ -32,24 +39,8 @@ public class Production implements StarsRate {
         return durationInMinutes;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setReleaseYear(int releaseYear) {
-        this.releaseYear = releaseYear;
-    }
-
     public void setIncludedInSubscription(boolean includedInSubscription) {
         this.includedInSubscription = includedInSubscription;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public void setTotalRating(short totalRating) {
-        this.totalRating = totalRating;
     }
 
     public void setDuration(int durationInMinutes) {

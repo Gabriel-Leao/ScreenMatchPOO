@@ -4,12 +4,12 @@ import br.com.leao.screenmatch.models.Episode;
 import br.com.leao.screenmatch.models.Movie;
 import br.com.leao.screenmatch.models.Serie;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Movie movie = new Movie();
-        movie.setName("O poderoso chefão");
+        Movie movie = new Movie("O poderoso chefão", 1972);
         movie.setDirector("Francis Ford Coppola");
-        movie.setReleaseYear(1972);
         movie.setIncludedInSubscription(true);
         movie.setDuration(175);
         movie.rateProduction(9.5);
@@ -17,9 +17,7 @@ public class Main {
 //        System.out.println("Média de avaliações: " + movie.getRating());
 //        System.out.println("Total de avaliações: " + movie.getTotalRating());
 
-        Serie serie = new Serie();
-        serie.setName("Breaking Bad");
-        serie.setReleaseYear(2008);
+        Serie serie = new Serie("Breaking Bad", 2008);
         serie.setIncludedInSubscription(true);
         serie.setSeasons(5);
         serie.setEpisodes(62);
@@ -41,10 +39,8 @@ public class Main {
         ep.setSerie(serie);
         ep.setStars(5);
 
-        Movie movie2 = new Movie();
-        movie2.setName("O poderoso chefão 2");
+        Movie movie2 = new Movie("O poderoso chefão 2", 1974);
         movie2.setDirector("Francis Ford Coppola");
-        movie2.setReleaseYear(1974);
         movie2.setIncludedInSubscription(true);
         movie2.setDuration(202);
         movie2.rateProduction(9.0);
@@ -52,11 +48,24 @@ public class Main {
         calculateTime.addProductionTime(movie);
         calculateTime.addProductionTime(movie2);
         calculateTime.addProductionTime(serie);
-        System.out.println("Tempo total: " + calculateTime.getTotalTime());
+//        System.out.println("Tempo total: " + calculateTime.getTotalTime());
         RecommendationFilter RecommendationFilter = new RecommendationFilter();
-        RecommendationFilter.Filter(movie);
-        RecommendationFilter.Filter(movie2);
-        RecommendationFilter.Filter(serie);
-        RecommendationFilter.Filter(ep);
+//        RecommendationFilter.Filter(movie);
+//        RecommendationFilter.Filter(movie2);
+//        RecommendationFilter.Filter(serie);
+//        RecommendationFilter.Filter(ep);
+
+        var movie3 = new Movie("Hereditário", 2018);
+        movie3.setDirector("Ari Aster");
+        movie3.setIncludedInSubscription(true);
+        movie3.setDuration(127);
+        movie3.rateProduction(9.0);
+
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        movies.add(movie2);
+        movies.add(movie3);
+        System.out.println("Tamanho da lista " + movies.size());
+        System.out.println("Todos os filmes: " + movies);
     }
 }

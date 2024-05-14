@@ -6,6 +6,10 @@ public class Serie extends Production {
     private Boolean ongoing;
     private int MinutesPerEpisode;
 
+    public Serie(String name, int releaseYear) {
+        super(name, releaseYear);
+    }
+
     public int getSeasons() {
         return seasons;
     }
