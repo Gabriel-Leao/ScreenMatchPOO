@@ -31,6 +31,11 @@ public class Serie extends Production {
         return episodes * MinutesPerEpisode;
     }
 
+    @Override
+    public String toString() {
+        return "Série: " + this.getName() +  " (" + this.getReleaseYear() + ") - " + this.seasons + (this.seasons > 1 ? " temporadas" : " temporada");
+    }
+
     public void setMinutesPerEpisode(int minutesPerEpisode) {
         MinutesPerEpisode = minutesPerEpisode;
     }

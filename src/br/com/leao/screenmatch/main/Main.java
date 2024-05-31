@@ -1,10 +1,15 @@
+package br.com.leao.screenmatch.main;
+
 import br.com.leao.screenmatch.calculations.CalculateTotalTime;
-import br.com.leao.screenmatch.calculations.RecommendationFilter;
 import br.com.leao.screenmatch.models.Episode;
 import br.com.leao.screenmatch.models.Movie;
+import br.com.leao.screenmatch.models.Production;
 import br.com.leao.screenmatch.models.Serie;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,7 +54,7 @@ public class Main {
         calculateTime.addProductionTime(movie2);
         calculateTime.addProductionTime(serie);
 //        System.out.println("Tempo total: " + calculateTime.getTotalTime());
-        RecommendationFilter RecommendationFilter = new RecommendationFilter();
+//        RecommendationFilter RecommendationFilter = new RecommendationFilter();
 //        RecommendationFilter.Filter(movie);
 //        RecommendationFilter.Filter(movie2);
 //        RecommendationFilter.Filter(serie);
@@ -61,11 +66,29 @@ public class Main {
         movie3.setDuration(127);
         movie3.rateProduction(9.0);
 
-        ArrayList<Movie> movies = new ArrayList<>();
-        movies.add(movie);
-        movies.add(movie2);
-        movies.add(movie3);
-        System.out.println("Tamanho da lista " + movies.size());
-        System.out.println("Todos os filmes: " + movies);
+        List<Production> list = new ArrayList<>();
+        list.add(movie);
+        list.add(movie2);
+        list.add(movie3);
+        list.add(serie);
+//        System.out.println("Tamanho da lista " + list.size());
+        for (Production production : list) {
+//            System.out.println(production);
+            if (production instanceof Movie movieProduction) {
+//                System.out.println("Diretor: " + movieProduction.getDirector());
+            }
+        }
+
+        List<String> actors = new ArrayList<>();
+        actors.add("Brad Pitt");
+        actors.add("Edward Norton");
+        actors.add("Helena Bonham Carter");
+        actors.add("Al Pacino");
+        actors.add("Marlon Brando");
+        actors.add("Robert De Niro");
+        Collections.sort(actors);
+        Collections.sort(list);
+        list.sort(Comparator.comparing(Production::getReleaseYear));
+        System.out.println(list);
     }
 }

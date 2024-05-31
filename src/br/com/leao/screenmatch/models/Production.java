@@ -2,7 +2,7 @@ package br.com.leao.screenmatch.models;
 
 import br.com.leao.screenmatch.calculations.StarsRate;
 
-public class Production implements StarsRate {
+public class Production implements StarsRate, Comparable<Production> {
     final
     private String name;
     final
@@ -64,5 +64,10 @@ public class Production implements StarsRate {
     @Override
     public int getRatingInStars() {
         return (int) getRating() / 2;
+    }
+
+    @Override
+    public int compareTo(Production otherProduction) {
+        return this.getName().compareTo(otherProduction.getName());
     }
 }
