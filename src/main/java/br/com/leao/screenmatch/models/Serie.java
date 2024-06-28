@@ -6,8 +6,8 @@ public class Serie extends Production {
     private Boolean ongoing;
     private int MinutesPerEpisode;
 
-    public Serie(String name, int releaseYear) {
-        super(name, releaseYear);
+    public Serie(String name, String releaseDate, String overview) {
+        super(name, releaseDate, overview);
     }
 
     public int getSeasons() {
@@ -33,7 +33,7 @@ public class Serie extends Production {
 
     @Override
     public String toString() {
-        return "Série: " + this.getName() +  " (" + this.getReleaseYear() + ") - " + this.seasons + (this.seasons > 1 ? " temporadas" : " temporada");
+        return "Série: " + this.getName() +  " (" + this.getReleaseDate() + ") - " + this.seasons + (this.seasons > 1 ? " temporadas " : " temporada ") + getOverview();
     }
 
     public void setMinutesPerEpisode(int minutesPerEpisode) {
@@ -55,7 +55,7 @@ public class Serie extends Production {
     @Override
     public void showTechnicalInfo() {
         System.out.println("Nome: " + getName());
-        System.out.println("Ano de lançamento: " + getReleaseYear());
+        System.out.println("Ano de lançamento: " + getReleaseDate());
         System.out.println("Na assinatura: " + getIsIncludedInSubscription());
         System.out.printf("Nota: %.1f\n", getRating());
         System.out.println("Total de avaliações: " + getTotalRating());

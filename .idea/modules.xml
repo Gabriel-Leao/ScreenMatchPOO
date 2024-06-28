@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ScreenMatchPOO.iml" filepath="$PROJECT_DIR$/ScreenMatchPOO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ScreenMatchPOO.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ScreenMatchPOO.main.iml" />
     </modules>
   </component>
 </project>

@@ -1,27 +1,34 @@
 package br.com.leao.screenmatch.models;
 
 import br.com.leao.screenmatch.calculations.StarsRate;
+import com.google.gson.annotations.SerializedName;
 
 public class Production implements StarsRate, Comparable<Production> {
     final
+    @SerializedName("title")
     private String name;
     final
-    private int releaseYear;
+    private String releaseDate;
+    final
+    private String overview;
     private boolean includedInSubscription;
     private double rating;
     private short totalRating;
     private int durationInMinutes;
 
-    public Production(String name, int releaseYear) {
+    public Production(String name, String releaseDate, String overview) {
         this.name = name;
-        this.releaseYear = releaseYear;
+        this.releaseDate = releaseDate;
+        this.overview = overview;
     }
 
     public String getName() { return name; }
 
-    public int getReleaseYear() {
-        return releaseYear;
+    public String getReleaseDate() {
+        return releaseDate;
     }
+
+    public String getOverview() { return overview; }
 
     public double getRating() {
         return rating;
@@ -49,7 +56,7 @@ public class Production implements StarsRate, Comparable<Production> {
 
     public void showTechnicalInfo() {
         System.out.println("Nome: " + name);
-        System.out.println("Ano de lançamento: " + releaseYear);
+        System.out.println("Lançamento: " + releaseDate);
         System.out.println("Na assinatura: " + includedInSubscription);
         System.out.printf("Nota: %.1f\n", rating);
         System.out.println("Total de avaliações: " + totalRating);
